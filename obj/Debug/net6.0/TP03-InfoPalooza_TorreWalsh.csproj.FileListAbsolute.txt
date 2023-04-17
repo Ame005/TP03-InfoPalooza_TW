@@ -1,0 +1,15 @@
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\bin\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.exe
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\bin\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.deps.json
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\bin\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.runtimeconfig.json
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\bin\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.dll
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\bin\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.pdb
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.csproj.AssemblyReference.cache
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.GeneratedMSBuildEditorConfig.editorconfig
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.AssemblyInfoInputs.cache
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.AssemblyInfo.cs
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.csproj.CoreCompileInputs.cache
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.dll
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\refint\TP03-InfoPalooza_TorreWalsh.dll
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.pdb
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\TP03-InfoPalooza_TorreWalsh.genruntimeconfig.cache
+Z:\4\4ID\Prog\TP03-InfoPalooza_TorreWalsh\obj\Debug\net6.0\ref\TP03-InfoPalooza_TorreWalsh.dll
