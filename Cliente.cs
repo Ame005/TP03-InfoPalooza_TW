@@ -23,6 +23,10 @@ class Cliente{
             TotalAbonado=nAbo;
             posible=true;
         }
+        else if (TipoEntrada==4){
+            posible=false;
+            Console.WriteLine("Ya tiene la entrada más cara, el cambio no va a ser posible");
+        }
         return posible;
     }
 }

@@ -1,42 +1,54 @@
 ﻿internal class Program{
     private static void Main(string[] args){
         Dictionary<int,Cliente> evento = new Dictionary<int,Cliente>{};
-        int opcion,id=0;
-        bool posible=false;
+        int opcion,buscado=0;
         do{
             opcion=menuEjercicio();
             switch(opcion){
                 case 1:
-                int tEnt=0;
-                double tAbo=0;
-                string dni=IngresarString("Ingrese su DNI");
-                if(!(evento[id].DNI==dni)){
-                    string ape=IngresarString("Ingrese su apellido");
-                    string nom=IngresarString("Ingresar su nombre");
-                    DateTime fins=IngresarDatetime();
-                    do{
-                        menuPrecios();
-                        tEnt=IngresarInt("Ingrese su tipo de entrada");
-                        tAbo=IngresarDouble("Ingrese su precio abonado");
-                        posible=verificarPrecioEntrada(tEnt,tAbo);
-                    }while(!posible);
-                    if(posible){
-                       Cliente nuevo = new Cliente(dni,ape,nom,fins,tEnt,tAbo);
-                       evento.Add(id,nuevo);
-                       id++;
-                    }
-                }
+                crearNuevoCliente(evento);
                 break;
                 case 2:
-                    verEntradas(evento);
+                verEntradas(evento);
                 break;
                 case 3:
+                buscado=Funciones.IngresarEntero("Ingrese el ID de la persona a buscar");
+                buscarID(evento,buscado);
                 break;
                 case 4:
+                buscado=Funciones.IngresarEntero("Ingrese el ID del cliente que desea cambiar su entrada");
+                cambiarEntrada(evento,buscado);
                 break;
             }
             Console.ReadKey();
         }while(opcion!=5);
+    }
+    static void cambiarEntrada(Dictionary<int,Cliente> evento, int buscado){
+        int nEnt=0;
+        double nAbo=0;
+        nEnt=Funciones.IngresarEntero("Ingrese el tipo de la nueva entrada");
+        nAbo=Funciones.IngresarReal("Ingrese el precio de la nueva entrada");
+        if(evento.ContainsKey(buscado)&&evento[buscado].CambiarEntrada(nEnt,nAbo)){
+            if(verificarPrecioEntrada(nEnt,nAbo)){
+                evento[buscado].TipoEntrada=nEnt;
+                evento[buscado].TotalAbonado=nAbo;
+                evento[buscado].FechaInscripcion=DateTime.Today;
+            }
+        }
+        else
+        Console.WriteLine("No se encuentra el ID");
+    }
+    static void buscarID(Dictionary<int,Cliente> evento, int buscado){
+        if(evento.ContainsKey(buscado)){
+            Console.WriteLine(evento[buscado].DNI);
+            Console.WriteLine(evento[buscado].Apellido);
+            Console.WriteLine(evento[buscado].Nombre);
+            Console.WriteLine(evento[buscado].FechaInscripcion);
+            Console.WriteLine(evento[buscado].TipoEntrada);
+            Console.WriteLine(evento[buscado].TotalAbonado);
+        }
+        else
+        Console.WriteLine("No se encuentra el ID");
     }
     static void verEntradas(Dictionary<int,Cliente> evento){
         int cont1=0,cont2=0,cont3=0,cont4=0,contGen=0;
@@ -74,20 +86,6 @@
         else
         Console.WriteLine("Aún no se anotó nadie");
     }
-    static DateTime IngresarDatetime(){
-        DateTime devolver=new DateTime();
-        bool valido=false;
-        int dia=1, mes=1, anio=1;
-        string fecha;
-        do{
-            anio=IngresarInt("Ingrese su año de nacimiento");
-            mes=IngresarInt("Ingrese su mes");
-            dia=IngresarInt("Ingese su dia");
-            fecha=dia+"/"+mes+"/"+anio; 
-            valido=DateTime.TryParse(fecha, out devolver);
-        }while(!valido);
-        return devolver;
-    }
     static bool verificarPrecioEntrada(int entrada,double tAbo){
         bool devolver=false;
         int[] precios= {15000,30000,10000,40000};
@@ -98,23 +96,26 @@
         }
         return devolver;
     }
-    static string IngresarString(string mensaje){
-        string devolver;
-        Console.WriteLine(mensaje);
-        devolver=Console.ReadLine();
-        return devolver;
-    }
-    static double IngresarDouble(string mensaje){
-        double devolver;
-        Console.WriteLine(mensaje);
-        devolver=double.Parse(Console.ReadLine());
-        return devolver;
-    }
-    static int IngresarInt(string mensaje){
-        int devolver;
-        Console.WriteLine(mensaje);
-        devolver=int.Parse(Console.ReadLine());
-        return devolver;
+    static void crearNuevoCliente(Dictionary<int,Cliente> evento){
+        int tEnt=0,id;
+        bool posible=false;
+                double tAbo=0;
+                string dni=Funciones.IngresarTexto("Ingrese su DNI");
+                string ape=Funciones.IngresarTexto("Ingrese su apellido");
+                string nom=Funciones.IngresarTexto("Ingresar su nombre");
+                DateTime fins=DateTime.Now;
+                do{
+                    menuPrecios();
+                    tEnt=Funciones.IngresarEntero("Ingrese su tipo de entrada");
+                    tAbo=Funciones.IngresarReal("Ingrese su precio abonado");
+                    posible=verificarPrecioEntrada(tEnt,tAbo);
+                }while(!posible);
+                if(posible){
+                    Cliente nuevo = new Cliente(dni,ape,nom,fins,tEnt,tAbo);
+                    id = Tiquetera.DevolverUltimoID();
+                    evento.Add(id,nuevo);
+                    Console.WriteLine("Su ID es "+id);
+                }
     }
     static void menuPrecios(){
         Console.WriteLine("1- Día 1 , valor a abonar $15000");
